@@ -46,7 +46,7 @@ export function InspeccionesInternasSeguridad(): JSX.Element {
 			<TitleBar label="Inspecciones internas de seguridad" />
 			<input
 				type="text"
-				placeholder="Buscar..."
+				placeholder="Filtrar..."
 				value={searchTerm}
 				onChange={(e) => setSearchTerm(e.target.value)}
 				className="mt-4 mb-4 p-3 border border-gray-300 rounded-lg w-full text-lg rounded"

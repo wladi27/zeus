@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Trash2 } from 'lucide-react'
 import { faEdit, faRedo, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ConfirmationModal from './components/ConfirmationModal'
 
 type Extintor = {
 	id: number
@@ -228,18 +227,21 @@ export function ExtintoresPage(): JSX.Element {
 								<div className="modal-body">
 									{error && <div className="alert alert-danger">{error}</div>}
 									<div className="mb-3">
+										<label htmlFor="">Código</label>
 										<input
 											type="text" className="form-control"
 											placeholder="Código" value={codigo}
 											onChange={(e) => setCodigo(e.target.value)} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">N° Extintor</label>
 										<input
 											type="number" className="form-control"
 											placeholder="N° Extintor" value={numeroExtintor === '' ? '' : numeroExtintor}
 											onChange={(e) => setNumeroExtintor(e.target.value === '' ? '' : Number(e.target.value))} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Seleccione Sede</label>
 										<select
 											className="form-select" value={sede}
 											onChange={(e) => setSede(e.target.value)}>
@@ -249,6 +251,7 @@ export function ExtintoresPage(): JSX.Element {
 										</select>
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Seleccione Área</label>
 										<select
 											className="form-select" value={area}
 											onChange={(e) => setArea(e.target.value)}>
@@ -258,12 +261,14 @@ export function ExtintoresPage(): JSX.Element {
 										</select>
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Ubicación</label>
 										<input
 											type="text" className="form-control"
 											placeholder="Ubicación" value={ubicacion}
 											onChange={(e) => setUbicacion(e.target.value)} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Seleccione Tipo de Extintor</label>
 										<select
 											className="form-select" value={tipoExtintor}
 											onChange={(e) => setTipoExtintor(e.target.value)}>
@@ -273,32 +278,38 @@ export function ExtintoresPage(): JSX.Element {
 										</select>
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Peso</label>
 										<input
 											type="number" className="form-control"
 											placeholder="Peso" value={peso === '' ? '' : peso}
 											onChange={(e) => setPeso(e.target.value === '' ? '' : Number(e.target.value))} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Fecha de Fabricación</label>
 										<input
 											type="date" className="form-control"
 											value={fechaFabricacion} onChange={(e) => setFechaFabricacion(e.target.value)} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Fecha de Prueba Hidrostática</label>
 										<input
 											type="date" className="form-control"
 											value={fechaPruebaHidrostatica} onChange={(e) => setFechaPruebaHidrostatica(e.target.value)} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Fecha de Recarga</label>
 										<input
 											type="date" className="form-control"
 											value={fechaRecarga} onChange={(e) => setFechaRecarga(e.target.value)} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Fecha de Ingreso</label>
 										<input
 											type="date" className="form-control"
 											value={fechaIngreso} onChange={(e) => setFechaIngreso(e.target.value)} />
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Certificación</label>
 										<select
 											className="form-select" value={certificacion}
 											onChange={(e) => setCertificacion(e.target.value)}>
@@ -308,6 +319,7 @@ export function ExtintoresPage(): JSX.Element {
 										</select>
 									</div>
 									<div className="mb-3">
+										<label htmlFor="">Archivo</label>
 										<input
 											type="file" className="form-control"
 											accept=".pdf, .doc, .docx" onChange={(e) => {
@@ -586,11 +598,6 @@ export function ExtintoresPage(): JSX.Element {
 				<h5 className="text-sm font-semibold text-center">Extintores disponibles</h5>
 				<h5 className="text-sm font-semibold text-center">Filtros de búsqueda</h5>
 
-				<ConfirmationModal
-					isOpen={confirmDeleteModalOpen}
-					onClose={() => setConfirmDeleteModalOpen(false)}
-					onConfirm={handleDeleteExtintor}
-				/>
 				<div className="row g-3 pt-4">
 					{/* Filtros */}
 					<div className="col-md-3">
